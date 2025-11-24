@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 25% 10%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 220 25% 10%;
+
+    --popover: 0 0% 98%;
+    --popover-foreground: 220 25% 10%;
+
+    --primary: 260 80% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 95%;
+    --secondary-foreground: 220 25% 10%;
+
+    --muted: 220 15% 95%;
+    --muted-foreground: 220 10% 40%;
+
+    --accent: 340 75% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 260 80% 65%;
+
+    --radius: 1rem;
+
+    /* Custom portfolio colors */
+    --gradient-start: 260 80% 65%;
+    --gradient-end: 340 75% 65%;
+    --glow: 260 100% 70%;
+    --card-hover: 220 15% 96%;
+  }
+
+  .dark {
+    --background: 220 25% 10%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 20% 14%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 20% 14%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 260 80% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 18% 20%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 220 18% 20%;
+    --muted-foreground: 220 10% 65%;
+
+    --accent: 340 75% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 20% 25%;
+    --input: 220 20% 25%;
+    --ring: 260 80% 65%;
+
+    /* Custom portfolio colors */
+    --gradient-start: 260 80% 65%;
+    --gradient-end: 340 75% 65%;
+    --glow: 260 100% 70%;
+    --card-hover: 220 20% 18%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: none;
+  }
+
+  * {
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                color 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (pointer: coarse) {
+    body {
+      cursor: auto;
+    }
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--accent));
+  }
+}
+
+@layer utilities {
+  @keyframes splash {
+    0% {
+      background: radial-gradient(circle, currentColor 0%, transparent 0%);
+    }
+    100% {
+      background: radial-gradient(circle, currentColor 100%, transparent 100%);
+    }
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+}
