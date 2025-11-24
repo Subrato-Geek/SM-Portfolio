@@ -75,7 +75,7 @@ export const Hero = () => {
             <TextReveal text={personalInfo.tagline} type="word" delay={0.5} />
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+          <div className="flex flex-wrap sm:flex-row gap-4 justify-center items-center pt-8">
             <Button
               size="lg"
               className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-white px-8"

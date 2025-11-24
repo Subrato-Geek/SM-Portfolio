@@ -16,12 +16,13 @@ export const projects: Project[] = [
     title: "CallOnDoc – Online Doctor Consultation Platform",
     description:
       "Developed responsive user interfaces for an online doctor consultation platform. Implemented complete patient and consultation flows, enhanced cross-browser compatibility, optimized UI performance, and resolved client-side issues to improve accessibility and user experience.",
-    image: "/callondoc.svg",
+    image: "/CallOnDoc.png",
     technologies: [
       "HTML5",
       "CSS3",
       "SCSS",
       "JavaScript (ES6)",
+      "ReactJs",
       "jQuery",
       "Bootstrap",
       "Laravel",
@@ -36,18 +37,19 @@ export const projects: Project[] = [
     title: "MediaTrooper – Entertainment & Digital Media Platform",
     description:
       "Enhanced and maintained the front-end interface for MediaTrooper, a digital media and live entertainment platform. Improved UI performance, optimized components for high-traffic pages, ensured responsiveness across devices, and resolved UI/UX issues to deliver a polished user experience.",
-    image: "/mediatrooper.svg",
+    image: "/MediaTroopers.png",
     technologies: [
       "HTML5",
       "CSS3",
       "JavaScript",
       "jQuery",
       "Bootstrap",
+      "WordPress",
       "Responsive UI",
       "Cross-Browser Testing",
       "Performance Optimization"
     ],
-    liveUrl: "https://www.mediatrooper.com/",
+    liveUrl: "https://www.media-troopers.com/",
     githubUrl: ""
   },
   {

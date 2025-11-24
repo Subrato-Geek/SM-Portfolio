@@ -8,11 +8,11 @@ interface TextRevealProps {
   type?: "char" | "word";
 }
 
-export const  TextReveal = ({ 
-  text, 
-  className = "", 
+export const TextReveal = ({
+  text,
+  className = "",
   delay = 0,
-  type = "char" 
+  type = "char",
 }: TextRevealProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
@@ -35,22 +35,60 @@ export const  TextReveal = ({
     return () => observer.disconnect();
   }, []);
 
-  const items = type === "char" ? text.split("") : text.split(" ");
+  // ✅ WORD MODE (if you ever use it)
+  if (type === "word") {
+    const words = text.split(" ");
+
+    return (
+      <span ref={ref} className={cn("inline-block", className)}>
+        {words.map((word, index) => (
+          <span
+            key={index}
+            className="inline-block mr-2"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? "translateY(0)" : "translateY(20px)",
+              transition: `all 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${
+                delay + index * 0.08
+              }s`,
+            }}
+          >
+            {word}
+          </span>
+        ))}
+      </span>
+    );
+  }
+
+  // ✅ CHAR MODE – grouped by word, with spacing using margin
+  const words = text.split(" ");
+  let globalIndex = 0;
 
   return (
     <span ref={ref} className={cn("inline-block", className)}>
-      {items.map((item, index) => (
+      {words.map((word, wordIdx) => (
         <span
-          key={index}
-          className="inline-block"
-          style={{
-            opacity: isVisible ? 1 : 0,
-            transform: isVisible ? "translateY(0)" : "translateY(20px)",
-            transition: `all 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${delay + index * 0.03}s`,
-          }}
+          key={wordIdx}
+          className="inline-block mr-2" // <-- this is your "space"
         >
-          {item === " " ? "\u00A0" : item}
-          {type === "word" && index < items.length - 1 ? "\u00A0" : ""}
+          {word.split("").map((char, charIdx) => {
+            const index = globalIndex++;
+            return (
+              <span
+                key={charIdx}
+                className="inline-block"
+                style={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? "translateY(0)" : "translateY(20px)",
+                  transition: `all 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${
+                    delay + index * 0.03
+                  }s`,
+                }}
+              >
+                {char}
+              </span>
+            );
+          })}
         </span>
       ))}
     </span>

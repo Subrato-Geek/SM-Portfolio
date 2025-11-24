@@ -50,7 +50,7 @@ export const AnimatedCursor = () => {
       {/* Main cursor dot */}
       <div
         ref={cursorDot}
-        className="fixed w-2 h-2 rounded-full pointer-events-none z-[9999] transition-transform duration-100"
+        className="fixed w-2 h-2 rounded-full pointer-events-none z-[9999] transition-transform duration-100 hidden lg:block"
         style={{
           transform: `translate(-50%, -50%) scale(${isPointer ? 0.5 : 1})`,
           backgroundColor: "hsl(var(--primary))",
@@ -62,7 +62,7 @@ export const AnimatedCursor = () => {
       {/* Cursor outline */}
       <div
         ref={cursorOutline}
-        className="fixed w-8 h-8 rounded-full pointer-events-none z-[9998] border-2 transition-all duration-300"
+        className="fixed w-8 h-8 rounded-full pointer-events-none z-[9998] border-2 transition-all duration-300 hidden lg:block"
         style={{
           transform: `translate(-50%, -50%) scale(${isPointer ? 1.5 : 1})`,
           borderColor: "hsl(var(--primary) / 0.5)",

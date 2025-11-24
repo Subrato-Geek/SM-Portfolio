@@ -53,7 +53,7 @@ export const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-full blur-2xl opacity-30" />
                 <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/20">
                   <img
-                    src="/placeholder.svg"
+                    src="/subrato-maji.png"
                     alt={personalInfo.name}
                     className="w-full h-full object-cover"
                   />
