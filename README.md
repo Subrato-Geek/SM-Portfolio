@@ -152,14 +152,6 @@ npm run build
 The output will be in the `dist` folder.
 
 ## 🚀 Deployment
-
-### Lovable Platform (Recommended)
-
-1. Click "Publish" in the Lovable editor
-2. Your site will be live instantly
-
-### Other Platforms
-
 **Vercel:**
 ```bash
 npm install -g vercel
